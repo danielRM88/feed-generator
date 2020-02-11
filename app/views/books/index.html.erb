@@ -1,3 +1,23 @@
-<% @books.each do |b| %>
-  <%= b.name %>
-<% end %>
+<h1>User <%= @user.name %> feed</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Number of Upvotes</th>
+      <th>Published on</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |b| %>
+      <tr>
+        <td><%= b.title %></td>
+        <td><%= b.author.name %></td>
+        <td><%= b.upvotes.count %></td>
+        <td><%= b.published_on_formatted %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br />
+<%= link_to 'Back', users_path %>
